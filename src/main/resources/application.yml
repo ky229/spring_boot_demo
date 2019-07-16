@@ -1,0 +1,50 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /mybatis
+
+spring:
+  jta:
+    atomikos:
+      properties:
+        max-actives: 50
+        enable-logging: true
+
+mysql:
+  datasource:
+    userdb:
+      maintenanceInterval: 60
+      password: spring_boot
+      minPoolSize: 3
+      borrowConnectionTimeout: 30
+      testQuery: select 1
+      loginTimeout: 30
+      maxIdleTime: 60
+      maxPoolSize: 25
+      url: jdbc:mysql://localhost:3306/spring_boot_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      maxLifetime: 20000
+      username: spring_boot
+    admindb:
+      maintenanceInterval: 60
+      password: spring_boot_1
+      minPoolSize: 3
+      borrowConnectionTimeout: 30
+      testQuery: select 1
+      maxIdleTime: 60
+      loginTimeout: 30
+      maxPoolSize: 25
+      maxLifetime: 20000
+      url: jdbc:mysql://localhost:3306/spring_boot_db_1?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+      username: spring_boot_1
+
+#打印SQL语句
+logging:
+  level:
+     com.wky.spring_boot.mybaits.mapper : debug
+
+#mybatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true  #开启数据库字段驼峰转换
+  type-aliases-package: com.wky.spring_boot.mybaits.mapper
+  mapper-locations: classpath*:mapper/*/*.xml

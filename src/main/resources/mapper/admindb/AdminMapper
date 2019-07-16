@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wky.spring_boot.mybaits.mapper.admindb.AdminMapper" >
+    <insert id="create">
+       insert into t_admin (admin_name,admin_password) VALUES(#{adminName},#{adminPassword})
+    </insert>
+</mapper>
